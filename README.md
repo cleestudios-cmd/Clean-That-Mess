@@ -2,7 +2,15 @@
 A beginner-built Python tool that scans a folder, detects file types, and copies them into organized subfolders automatically — no more messy Downloads folders.
 
 ---
+## 🗂️ VERION 1.0.2
+New Updates!
+- New GUI
+- Subfolders inclusion
 
+
+Thanks to our new contributors!
+
+---
 ## 👋 About This Project
 
 Hi! I'm a beginner Python developer building this project to learn real-world automation while solving an actual everyday problem.
