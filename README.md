@@ -155,10 +155,4 @@ This project isn't just about the code. It's about building something real while
 
 ---
 
-## 📄 License
-
-MIT License 
-
----
-
 > Built by a beginner, for beginners. Every expert was once where you are. Let's build together. 🚀
