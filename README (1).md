@@ -1,0 +1,155 @@
+# 🗂️ PyFileOrganizer
+
+A beginner-built Python tool that scans a folder, detects file types, and copies them into organized subfolders automatically — no more messy Downloads folders.
+
+---
+
+## 👋 About This Project
+
+Hi! I'm a beginner Python developer building this project to learn real-world automation while solving an actual everyday problem.
+
+The idea is simple: point the script at a messy folder, and it automatically sorts everything into clean, organized subfolders based on file type — photos go into `PHOTOS/`, PDFs go into `PDF/`, videos into `VIDEOS/`, and so on.
+
+**This is an open learning project.** I built this to grow as a coder, and I'd love to grow alongside other beginners and aspiring developers. If you're just starting out and want a real project to contribute to, learn from, or just experiment with — you're in the right place.
+
+---
+
+## ✨ What It Does
+
+- 📂 Asks you for a **source folder** to scan
+- 📁 Asks if you want to **create a new destination folder or use an existing one**
+- 🔍 Scans all files in the source folder
+- 📋 **Copies** files into organized subfolders (originals are never deleted)
+- 🖼️ Photos (jpg, png, heic, webp, etc.) → `PHOTOS/JPG/`, `PHOTOS/PNG/`, etc.
+- 📄 Documents, videos, audio, archives → `PDF/`, `DOCS/`, `VIDEOS/`, `AUDIO/`, etc.
+- ❓ Unknown file types → `OTHERS/`
+- ⏭️ Skips files that already exist at the destination (no duplicates)
+- 🖥️ Prints a live log in the terminal so you can see exactly what happened
+
+---
+
+## 📁 Output Structure Example
+
+```
+Organized/
+├── PHOTOS/
+│   ├── JPG/
+│   ├── PNG/
+│   └── HEIC/
+├── PDF/
+├── DOCS/
+├── VIDEOS/
+├── AUDIO/
+├── ARCHIVES/
+├── CODE/
+└── OTHERS/
+```
+
+---
+
+## 🚀 How to Run
+
+### 1. Requirements
+
+- Python 3.x installed — [Download here](https://www.python.org/downloads/)
+- No extra libraries needed — only built-in Python modules (`os`, `shutil`)
+
+### 2. Clone the Repository
+
+```bash
+git clone https://github.com/YOUR-USERNAME/PyFileOrganizer.git
+```
+
+Then navigate into the folder:
+
+```bash
+cd PyFileOrganizer
+```
+
+### 3. Run the Script
+
+```bash
+python file_organizer.py
+```
+
+### 4. Follow the Prompts
+
+```
+📂 Enter source folder path: C:\Users\YourName\Downloads
+
+Destination — create new folder or use existing? (new/existing): new
+📁 Enter path where new folder will be created: C:\Users\YourName\Desktop
+📝 Enter new folder name: Organized
+✅ Created: C:\Users\YourName\Desktop\Organized
+```
+
+That's it. The script does the rest.
+
+> ⚠️ **Safe to use** — the script only **copies** files. It never moves or deletes your originals.
+
+---
+
+## 🗺️ Roadmap
+
+This is just the beginning. Here's what I'm planning to build next:
+
+- [ ] Add **file move mode** (not just copy) as an option
+- [ ] Scan **subfolders recursively** (not just top-level files)
+- [ ] Add a **simple GUI** so non-coders can use it too
+- [ ] Let users **customize their own file type categories**
+- [ ] Add a **undo/restore** feature
+- [ ] Generate an **organized summary report** after each run
+- [ ] Support for **scheduled/automatic runs**
+
+---
+
+## 🤝 Contributing — Beginners Welcome!
+
+This project is **open to everyone**, especially beginners and aspiring coders who want to work on a real project.
+
+I tagged beginner-friendly tasks with **`good first issue`** — these are small, well-defined tasks that are perfect if you've never contributed to a project before.
+
+### How to contribute
+
+1. **Fork** this repository (click Fork at the top right)
+2. **Clone** your fork:
+   ```bash
+   git clone https://github.com/YOUR-USERNAME/PyFileOrganizer.git
+   ```
+3. **Create a branch** for your change:
+   ```bash
+   git checkout -b your-feature-name
+   ```
+4. **Make your changes**, then commit:
+   ```bash
+   git commit -m "Add: your change description"
+   ```
+5. **Push** to your fork:
+   ```bash
+   git push origin your-feature-name
+   ```
+6. Open a **Pull Request** and describe what you did
+
+Not sure where to start? Check the [Issues](../../issues) tab and look for the `good first issue` label.
+
+---
+
+## 💬 Suggestions & Collaboration
+
+Have an idea? Found a bug? Want to build something together?
+
+- Open an [Issue](../../issues) — for bugs, ideas, or feature requests
+- Start a [Discussion](../../discussions) — for questions, feedback, or just saying hi
+- DM me — always open to connecting with fellow coders learning the same path
+
+This project isn't just about the code. It's about building something real while meeting people with the same goal — learning, improving, and having something to show for it.
+
+---
+
+## 📄 License
+
+MIT License — free to use, fork, and build on.
+
+---
+
+> Built by a beginner, for beginners. Every expert was once where you are. Let's build together. 🚀
