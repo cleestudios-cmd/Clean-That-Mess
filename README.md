@@ -1,5 +1,4 @@
-# 🗂️ PyFileOrganizer
-
+# 🗂️ Clean-That-Mess
 A beginner-built Python tool that scans a folder, detects file types, and copies them into organized subfolders automatically — no more messy Downloads folders.
 
 ---
