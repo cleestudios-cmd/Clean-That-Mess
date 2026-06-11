@@ -19,6 +19,7 @@ The idea is simple: point the script at a messy folder, and it automatically sor
 - 📂 Select source and destination folders with dialog browsers (GUI) or path prompts (CLI)
 - 🔍 Scans all files in the source folder
 - 📋 **Copies** or **Moves** files into organized subfolders (Copy mode keeps originals, Move mode transfers them)
+- 🔁 Optionally **scans subfolders recursively** instead of just the top level
 - 🖼️ Photos (jpg, png, heic, webp, etc.) → `PHOTOS/JPG/`, `PHOTOS/PNG/`, etc.
 - 📄 Documents, videos, audio, archives → `PDF/`, `DOCS/`, `VIDEOS/`, `AUDIO/`, etc.
 - ❓ Unknown file types → `OTHERS/`
@@ -83,6 +84,7 @@ python file-org.py
 Inside the GUI:
 - Use the **Browse** buttons to select your source and destination folders.
 - Select **Copy** (keeps originals) or **Move** (transfers/removes originals) mode.
+- Tick **Include subfolders** to scan nested folders recursively.
 - Click **Run** to organize. Progress logs will show in the log area.
 
 ### 4. Run the CLI Mode
@@ -93,7 +95,7 @@ If you prefer using the command line:
 python file-org.py --cli
 ```
 
-Follow the prompts to enter folders and choose the operation mode.
+Follow the prompts to enter folders, choose the operation mode, and decide whether to scan subfolders recursively.
 
 ---
 
@@ -102,7 +104,7 @@ Follow the prompts to enter folders and choose the operation mode.
 This is just the beginning. Here's what I'm planning to build next:
 
 - [x] Add **file move mode** (not just copy) as an option
-- [ ] Scan **subfolders recursively** (not just top-level files)
+- [x] Scan **subfolders recursively** (not just top-level files)
 - [x] Add a **simple GUI** so non-coders can use it too
 - [ ] Let users **customize their own file type categories**
 - [ ] Add a **undo/restore** feature

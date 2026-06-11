@@ -52,27 +52,47 @@ OTHER_TYPES = {
 }
 
 
-def organize_files(source_folder, dest_folder, mode="copy", log_callback=print):
+def iter_source_files(source_folder, dest_folder, recursive):
+    """Yield (source_path, filename) for every file to organize.
+
+    When recursive is True, subfolders are traversed with os.walk(); the
+    destination folder is pruned so already-organized files are never
+    re-scanned if it lives inside the source folder.
+    """
+    if not recursive:
+        for filename in os.listdir(source_folder):
+            source_path = os.path.join(source_folder, filename)
+            if os.path.isfile(source_path):
+                yield source_path, filename
+        return
+
+    dest_abs = os.path.abspath(dest_folder)
+    for root, dirs, files in os.walk(source_folder):
+        # Don't descend into the destination folder (avoids re-scanning copies)
+        dirs[:] = [
+            d for d in dirs
+            if os.path.abspath(os.path.join(root, d)) != dest_abs
+        ]
+        for filename in files:
+            yield os.path.join(root, filename), filename
+
+
+def organize_files(source_folder, dest_folder, mode="copy", recursive=False, log_callback=print):
     copied  = 0
     moved   = 0
     skipped = 0
     unknown = 0
 
-    log_callback(f"📂 Scanning: {source_folder}\n")
+    scope = "recursively" if recursive else "top-level only"
+    log_callback(f"📂 Scanning ({scope}): {source_folder}\n")
 
     try:
-        files = os.listdir(source_folder)
+        files = list(iter_source_files(source_folder, dest_folder, recursive))
     except Exception as e:
         log_callback(f"❌ Error listing source folder: {e}")
         return
 
-    for filename in files:
-        source_path = os.path.join(source_folder, filename)
-
-        # Skip subfolders
-        if not os.path.isfile(source_path):
-            continue
-
+    for source_path, filename in files:
         # Get extension (lowercase, no dot)
         ext = filename.rsplit(".", 1)[-1].lower() if "." in filename else ""
 
@@ -171,8 +191,19 @@ def run_cli():
                 break
             else:
                 print("❌ Type 'copy' or 'move' or press Enter.")
-                
-        organize_files(source, dest, mode=mode)
+
+        while True:
+            choice = input("\nScan subfolders too? (yes/no) [default: no]: ").strip().lower()
+            if not choice or choice in ("no", "n"):
+                recursive = False
+                break
+            elif choice in ("yes", "y"):
+                recursive = True
+                break
+            else:
+                print("❌ Type 'yes' or 'no' or press Enter.")
+
+        organize_files(source, dest, mode=mode, recursive=recursive)
     except KeyboardInterrupt:
         print("\n👋 Operation cancelled.")
         sys.exit(0)
