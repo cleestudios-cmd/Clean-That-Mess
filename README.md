@@ -15,15 +15,15 @@ The idea is simple: point the script at a messy folder, and it automatically sor
 
 ## ✨ What It Does
 
-- 📂 Asks you for a **source folder** to scan
-- 📁 Asks if you want to **create a new destination folder or use an existing one**
+- 🖥️ Offers a **Modern flat-design GUI** and a classic **CLI mode**
+- 📂 Select source and destination folders with dialog browsers (GUI) or path prompts (CLI)
 - 🔍 Scans all files in the source folder
-- 📋 **Copies** files into organized subfolders (originals are never deleted)
+- 📋 **Copies** or **Moves** files into organized subfolders (Copy mode keeps originals, Move mode transfers them)
 - 🖼️ Photos (jpg, png, heic, webp, etc.) → `PHOTOS/JPG/`, `PHOTOS/PNG/`, etc.
 - 📄 Documents, videos, audio, archives → `PDF/`, `DOCS/`, `VIDEOS/`, `AUDIO/`, etc.
 - ❓ Unknown file types → `OTHERS/`
 - ⏭️ Skips files that already exist at the destination (no duplicates)
-- 🖥️ Prints a live log in the terminal so you can see exactly what happened
+- 📝 Displays a live, real-time log of the operation
 
 ---
 
@@ -46,12 +46,19 @@ Organized/
 
 ---
 
+## 🗃️ File Structure
+
+- **`file-org.py`**: Main entrypoint containing core organizing logic, CLI mode, and dynamic GUI launcher.
+- **`gui.py`**: Custom-styled flat dark-theme Tkinter GUI layout.
+
+---
+
 ## 🚀 How to Run
 
 ### 1. Requirements
 
 - Python 3.x installed — [Download here](https://www.python.org/downloads/)
-- No extra libraries needed — only built-in Python modules (`os`, `shutil`)
+- No extra libraries needed — only built-in Python modules (`os`, `shutil`, `tkinter`)
 
 ### 2. Clone the Repository
 
@@ -65,26 +72,28 @@ Then navigate into the folder:
 cd Clean-That-Mess
 ```
 
-### 3. Run the Script
+### 3. Run the GUI (Default)
+
+Running the script directly opens the interactive GUI:
 
 ```bash
-python Clean-That-Mess.py
+python file-org.py
 ```
 
-### 4. Follow the Prompts
+Inside the GUI:
+- Use the **Browse** buttons to select your source and destination folders.
+- Select **Copy** (keeps originals) or **Move** (transfers/removes originals) mode.
+- Click **Run** to organize. Progress logs will show in the log area.
 
+### 4. Run the CLI Mode
+
+If you prefer using the command line:
+
+```bash
+python file-org.py --cli
 ```
-📂 Enter source folder path: C:\Users\YourName\Downloads
 
-Destination — create new folder or use existing? (new/existing): new
-📁 Enter path where new folder will be created: C:\Users\YourName\Desktop
-📝 Enter new folder name: Organized
-✅ Created: C:\Users\YourName\Desktop\Organized
-```
-
-That's it. The script does the rest.
-
-> ⚠️ **Safe to use** — the script only **copies** files. It never moves or deletes your originals.
+Follow the prompts to enter folders and choose the operation mode.
 
 ---
 
@@ -92,9 +101,9 @@ That's it. The script does the rest.
 
 This is just the beginning. Here's what I'm planning to build next:
 
-- [ ] Add **file move mode** (not just copy) as an option
+- [x] Add **file move mode** (not just copy) as an option
 - [ ] Scan **subfolders recursively** (not just top-level files)
-- [ ] Add a **simple GUI** so non-coders can use it too
+- [x] Add a **simple GUI** so non-coders can use it too
 - [ ] Let users **customize their own file type categories**
 - [ ] Add a **undo/restore** feature
 - [ ] Generate an **organized summary report** after each run
