@@ -178,6 +178,22 @@ class CleanMessGUI:
         self.run_btn = ModernButton(action_row, text="Run Organization", command=self.start_organize, bg="#10b981", hover_bg="#34d399")
         self.run_btn.pack(side="right")
 
+        # --- Options Section ---
+        options_row = tk.Frame(form_frame, bg="#18181b")
+        options_row.pack(fill="x", pady=(12, 0))
+
+        self.recursive_var = tk.BooleanVar(value=False)
+        self.recursive_check = tk.Checkbutton(
+            options_row,
+            text="Include subfolders (scan recursively)",
+            variable=self.recursive_var,
+            font=("Segoe UI", 9), fg="#a1a1aa", bg="#18181b",
+            activebackground="#18181b", activeforeground="#f4f4f5",
+            selectcolor="#27272a", bd=0, highlightthickness=0,
+            cursor="hand2", anchor="w",
+        )
+        self.recursive_check.pack(anchor="w")
+
         # --- Logs Section ---
         log_lbl = tk.Label(main_container, text="Results Log", font=("Segoe UI", 10, "bold"), fg="#f4f4f5", bg="#18181b")
         log_lbl.pack(anchor="w", pady=(15, 5))
@@ -214,6 +230,7 @@ class CleanMessGUI:
         source = self.src_entry.get().strip()
         destination = self.dest_entry.get().strip()
         mode = "copy" if self.mode_control.get().startswith("Copy") else "move"
+        recursive = self.recursive_var.get()
 
         if not source:
             messagebox.showerror("Error", "Please select a source folder.")
@@ -244,14 +261,15 @@ class CleanMessGUI:
         self.src_entry.set_disabled(True)
         self.dest_entry.set_disabled(True)
         self.mode_control.set_disabled(True)
+        self.recursive_check.config(state="disabled")
 
-        t = threading.Thread(target=self.run_thread, args=(source, destination, mode))
+        t = threading.Thread(target=self.run_thread, args=(source, destination, mode, recursive))
         t.daemon = True
         t.start()
 
-    def run_thread(self, source, destination, mode):
+    def run_thread(self, source, destination, mode, recursive):
         try:
-            self.organize_callback(source, destination, mode=mode, log_callback=self.append_log)
+            self.organize_callback(source, destination, mode=mode, recursive=recursive, log_callback=self.append_log)
         except Exception as e:
             self.append_log(f"❌ Unexpected error: {e}")
         finally:
@@ -264,6 +282,7 @@ class CleanMessGUI:
         self.src_entry.set_disabled(False)
         self.dest_entry.set_disabled(False)
         self.mode_control.set_disabled(False)
+        self.recursive_check.config(state="normal")
 
 
 def run_gui(organize_callback):
