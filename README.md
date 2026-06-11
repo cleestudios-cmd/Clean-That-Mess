@@ -56,19 +56,19 @@ Organized/
 ### 2. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/PyFileOrganizer.git
+git clone https://github.com/cleestudios-cmd/Clean-That-Mess.git
 ```
 
 Then navigate into the folder:
 
 ```bash
-cd PyFileOrganizer
+cd Clean-That-Mess
 ```
 
 ### 3. Run the Script
 
 ```bash
-python file_organizer.py
+python Clean-That-Mess.py
 ```
 
 ### 4. Follow the Prompts
