@@ -108,16 +108,7 @@ Follow the prompts to enter folders, choose the operation mode, and decide wheth
 ---
 
 ## 🗺️ Roadmap
-
-This is just the beginning. Here's what I'm planning to build next:
-
-- [x] Add **file move mode** (not just copy) as an option
-- [x] Scan **subfolders recursively** (not just top-level files)
-- [x] Add a **simple GUI** so non-coders can use it too
-- [ ] Let users **customize their own file type categories**
-- [ ] Add a **undo/restore** feature
-- [ ] Generate an **organized summary report** after each run
-- [ ] Support for **scheduled/automatic runs**
+See the [📍 Project Roadmap](link-to-your-issue) for what's done and what's coming next.
 
 ---
 
@@ -166,7 +157,7 @@ This project isn't just about the code. It's about building something real while
 
 ## 📄 License
 
-MIT License — free to use, fork, and build on.
+MIT License 
 
 ---
 
