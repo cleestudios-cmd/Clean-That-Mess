@@ -114,7 +114,7 @@ I tagged beginner-friendly tasks with **`good first issue`** — these are small
 1. **Fork** this repository (click Fork at the top right)
 2. **Clone** your fork:
    ```bash
-   git clone https://github.com/YOUR-USERNAME/PyFileOrganizer.git
+   git clone https://github.com/cleestudios-cmd/PyFileOrganizer.git
    ```
 3. **Create a branch** for your change:
    ```bash
