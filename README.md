@@ -66,7 +66,7 @@ Organized/
 
 ### 1. Requirements
 
-- Python 3.x installed — [Download here](https://www.python.org/downloads/)
+- Python 3.6+ installed — [Download here](https://www.python.org/downloads/)
 - No extra libraries needed — only built-in Python modules (`os`, `shutil`, `tkinter`)
 
 ### 2. Clone the Repository
@@ -108,7 +108,7 @@ Follow the prompts to enter folders, choose the operation mode, and decide wheth
 ---
 
 ## 🗺️ Roadmap
-See the [📍 Project Roadmap](link-to-your-issue) for what's done and what's coming next.
+See the [Project Roadmap🗺️](link-to-your-issue) for what's done and what's coming next.
 
 ---
 
